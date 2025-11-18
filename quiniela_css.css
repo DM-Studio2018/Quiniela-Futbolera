@@ -1,0 +1,473 @@
+/**
+ * Estilos públicos del plugin
+ * Archivo: assets/css/public.css
+ */
+
+/* ========== Variables ========== */
+:root {
+    --quiniela-primary: #2c3e50;
+    --quiniela-success: #27ae60;
+    --quiniela-danger: #e74c3c;
+    --quiniela-warning: #f39c12;
+    --quiniela-bg: #ecf0f1;
+    --quiniela-border: #bdc3c7;
+}
+
+/* ========== Contenedores principales ========== */
+.quiniela-predictions-container,
+.quiniela-standings,
+.quiniela-prizes,
+.quiniela-rules {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ========== Notificaciones ========== */
+.quiniela-notice {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-left: 4px solid;
+}
+
+.quiniela-notice.warning {
+    background: #fff3cd;
+    border-color: var(--quiniela-warning);
+    color: #856404;
+}
+
+.quiniela-notice.success {
+    background: #d4edda;
+    border-color: var(--quiniela-success);
+    color: #155724;
+}
+
+.quiniela-notice.error {
+    background: #f8d7da;
+    border-color: var(--quiniela-danger);
+    color: #721c24;
+}
+
+/* ========== Tablas ========== */
+.quiniela-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.quiniela-table thead {
+    background: var(--quiniela-primary);
+    color: #fff;
+}
+
+.quiniela-table thead th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quiniela-table tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.quiniela-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Filas editables (verde) */
+.quiniela-table tbody tr.editable {
+    background: #e8f5e9;
+    transition: background 0.3s;
+}
+
+.quiniela-table tbody tr.editable:hover {
+    background: #c8e6c9;
+}
+
+/* Filas bloqueadas (rojo claro) */
+.quiniela-table tbody tr.locked {
+    background: #ffebee;
+}
+
+.quiniela-table tbody tr.locked input {
+    background: #f5f5f5;
+    cursor: not-allowed;
+}
+
+/* Filas finalizadas */
+.quiniela-table tbody tr.finished {
+    background: #f5f5f5;
+}
+
+/* ========== Banderas y equipos ========== */
+.quiniela-table td.team {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.quiniela-table td.team .flag {
+    width: 32px;
+    height: 24px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.quiniela-table td.vs {
+    text-align: center;
+    color: #999;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* ========== Inputs de pronóstico ========== */
+.quiniela-table input.pred-score {
+    width: 50px;
+    padding: 6px 8px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    transition: border-color 0.3s;
+}
+
+.quiniela-table input.pred-score:focus {
+    outline: none;
+    border-color: var(--quiniela-primary);
+}
+
+.quiniela-table td.prediction {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ========== Resultados y puntos ========== */
+.quiniela-table td.result {
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--quiniela-primary);
+}
+
+.quiniela-table td.points {
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--quiniela-success);
+}
+
+/* ========== Títulos de fase ========== */
+.phase-title {
+    margin: 30px 0 15px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, var(--quiniela-primary) 0%, #34495e 100%);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* ========== Predicciones finales ========== */
+.quiniela-final-predictions {
+    margin: 40px 0;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px solid var(--quiniela-border);
+}
+
+.quiniela-final-predictions h3 {
+    margin-top: 0;
+    color: var(--quiniela-primary);
+}
+
+.quiniela-final-predictions .description {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.quiniela-final-predictions .final-table {
+    background: #fff;
+}
+
+.quiniela-final-predictions .final-table th {
+    background: var(--quiniela-primary);
+    color: #fff;
+    padding: 12px 15px;
+    width: 200px;
+}
+
+.quiniela-final-predictions select,
+.quiniela-final-predictions input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.quiniela-final-predictions select:focus,
+.quiniela-final-predictions input[type="text"]:focus {
+    outline: none;
+    border-color: var(--quiniela-primary);
+}
+
+/* ========== Trivia ========== */
+.quiniela-trivia {
+    margin: 40px 0;
+    padding: 25px;
+    background: #fff9e6;
+    border-radius: 8px;
+    border: 2px solid #ffd966;
+}
+
+.quiniela-trivia h3 {
+    margin-top: 0;
+    color: var(--quiniela-warning);
+}
+
+.trivia-question {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    border-left: 4px solid var(--quiniela-warning);
+}
+
+.trivia-question p {
+    margin: 0 0 10px;
+}
+
+.trivia-select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* ========== Botones ========== */
+.quiniela-actions {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.quiniela-actions .button {
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.quiniela-actions .button-primary {
+    background: var(--quiniela-success);
+    color: #fff;
+}
+
+.quiniela-actions .button-primary:hover {
+    background: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ========== Tabla de posiciones ========== */
+.standings-table {
+    font-size: 16px;
+}
+
+.standings-table tbody tr.current-user {
+    background: #fff3cd;
+    border: 2px solid var(--quiniela-warning);
+    font-weight: 700;
+}
+
+.standings-table tbody tr:nth-child(1) {
+    background: #ffd700;
+    font-weight: 700;
+}
+
+.standings-table tbody tr:nth-child(2) {
+    background: #c0c0c0;
+    font-weight: 700;
+}
+
+.standings-table tbody tr:nth-child(3) {
+    background: #cd7f32;
+    font-weight: 700;
+}
+
+.user-stats {
+    padding: 15px;
+    margin: 20px 0;
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    border-radius: 5px;
+}
+
+.current-time {
+    text-align: right;
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* ========== Premios ========== */
+.prize-pool-info {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.prize-pool-info h3 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.prize-pool-info .pot-amount {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.prize-pool-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.prize-pool-info ul li {
+    padding: 10px 0;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.prize-pool-info ul li:last-child {
+    border-bottom: none;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+    .quiniela-table {
+        font-size: 12px;
+    }
+    
+    .quiniela-table thead th,
+    .quiniela-table tbody td {
+        padding: 8px 5px;
+    }
+    
+    .quiniela-table td.team .flag {
+        width: 24px;
+        height: 18px;
+    }
+    
+    .quiniela-table input.pred-score {
+        width: 40px;
+        font-size: 14px;
+    }
+    
+    .prize-pool-info .pot-amount {
+        font-size: 32px;
+    }
+    
+    .quiniela-actions .button {
+        width: 100%;
+    }
+}
+
+/* ========== Animaciones ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quiniela-table tbody tr {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ========== Estados de carga ========== */
+.quiniela-loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.quiniela-loading::after {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--quiniela-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========== Mensajes de éxito/error ========== */
+.quiniela-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.quiniela-message.success {
+    border-left: 4px solid var(--quiniela-success);
+}
+
+.quiniela-message.error {
+    border-left: 4px solid var(--quiniela-danger);
+}
